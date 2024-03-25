@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 import logging
 import logging.config
 
+from app.plugins.menu import DisplayMenu
+
 class App:
     def __init__(self):
         os.makedirs('logs', exist_ok=True)
@@ -51,7 +53,11 @@ class App:
             item = getattr(plugin_module, item_name)
             if isinstance(item, type) and issubclass(item, Command) and item is not Command:
                 # Command names are now explicitly set to the plugin's folder name
-                self.command_handler.register_command(plugin_name, item())
+                if plugin_name == 'menu':
+                    menu_instance = DisplayMenu(self.command_handler)
+                    self.command_handler.register_command(plugin_name, menu_instance)
+                else:
+                    self.command_handler.register_command(plugin_name, item())
                 logging.info(f"Command '{plugin_name}' from plugin '{plugin_name}' registered.")
 
     def start(self):
