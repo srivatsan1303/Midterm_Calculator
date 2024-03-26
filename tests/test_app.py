@@ -1,8 +1,9 @@
+'''operations performed under different test cases'''
 import pytest
-
 from app import App
 
 def test_app_get_environment_variable():
+    '''Test how the REPL handles the command.'''
     app = App()
 #   Retrieve the current environment setting
     current_env = app.get_environment_variable('ENVIRONMENT')
@@ -27,13 +28,60 @@ def test_app_start_unknown_command(capfd, monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
 
     app = App()
-    
-    with pytest.raises(SystemExit) as excinfo:
+    with pytest.raises(SystemExit):
         app.start()
-    
     # Optionally, check for specific exit code or message
     # assert excinfo.value.code == expected_exit_code
-    
     # Verify that the unknown command was handled as expected
     captured = capfd.readouterr()
     assert "No such command: unknown_command" in captured.out
+
+def test_app_start_add(capfd, monkeypatch):
+    """Test how the REPL handles an add command before exiting."""
+    # Simulate user entering an unknown command followed by 'exit'
+    inputs = iter(['add', '14', '5', 'exit'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    app = App()
+    with pytest.raises(SystemExit):
+        app.start()
+    captured = capfd.readouterr()
+    assert "19" in captured.out, "The addition command did not produce the expected output."
+
+
+def test_app_start_subtract(capfd, monkeypatch):
+    """Test how the REPL handles an sub command before exiting."""
+    # Simulate user entering an unknown command followed by 'exit'
+    inputs = iter(['subract', '10', '2', 'exit'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    app = App()
+    with pytest.raises(SystemExit):
+        app.start()
+
+    captured = capfd.readouterr()
+    assert "8" in captured.out, "The subract command did not produce the expected output."
+
+def test_app_start_multiply(capfd, monkeypatch):
+    """Test how the REPL handles a 'multiply' command before exiting."""
+    inputs = iter(['multiply', '4', '4', 'exit'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    app = App()
+    with pytest.raises(SystemExit):
+        app.start()
+
+    captured = capfd.readouterr()
+    assert "16" in captured.out, "The multiplication command did not produce the expected output."
+
+def test_app_start_divide(capfd, monkeypatch):
+    """Test how the REPL handles a 'divide' command before exiting."""
+    inputs = iter(['divide', '10', '2', 'exit'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    app = App()
+    with pytest.raises(SystemExit):
+        app.start()
+
+    captured = capfd.readouterr()
+    assert "5" in captured.out, "The division command did not produce the expected output."
