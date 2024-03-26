@@ -8,13 +8,10 @@ class DivideOperation(Command):
         try:
             operand_one = float(input("Enter the first number: "))
             operand_two = float(input("Enter the second number: "))
-            if operand_two == 0:
-                print("Error: Division by zero is not allowed.")
-                return
             result = operand_one / operand_two
             print(f"Result: {result}")
             history_instance = CalculationHistory()
-            data = ['Divide', operand_one, operand_two]
+            data = ['divide', operand_one, operand_two]
             old_data = history_instance.fetch_as_list()  # Updated data structure to include the operation name and result.
             old_data.append(data)
             history_instance.log_data(old_data)

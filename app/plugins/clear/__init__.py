@@ -7,4 +7,5 @@ class ResetHistoryCommand(Command):
     def execute(self):
         history_manager = CalculationHistory()
         history_manager.reset()
+        print("History has been cleared!")
         logging.info('Operation history of calculator has been reset.')

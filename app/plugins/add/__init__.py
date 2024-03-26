@@ -11,7 +11,7 @@ class SumOperation(Command):
             result = operand_one + operand_two
             print(f"Result: {result}")
             history_instance = CalculationHistory()
-            data = ['Add', operand_one, operand_two]
+            data = ['add', operand_one, operand_two]
             old_data = history_instance.fetch_as_list()  # Updated data structure to include the operation name and result.
             old_data.append(data)
             history_instance.log_data(old_data)
