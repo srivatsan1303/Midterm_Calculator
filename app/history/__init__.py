@@ -4,7 +4,7 @@ import pandas as pd
 
 class CalculationHistory:
     def __init__(self):
-        storage_path = os.getenv('calc_history_path')
+        storage_path = os.getenv('CALCULATION_HISTORY_PATH')
         self.storage_path = storage_path
         self.record_number = 1
         if not os.path.exists(os.path.dirname(storage_path)):
