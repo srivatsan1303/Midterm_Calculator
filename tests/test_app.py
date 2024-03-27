@@ -86,6 +86,21 @@ def test_app_start_divide(capfd, monkeypatch):
     captured = capfd.readouterr()
     assert "5" in captured.out, "The division command did not produce the expected output."
 
+def test_app_start_divide_by_zero(capfd, monkeypatch):
+    """Test how the REPL handles a 'divide' command with division by zero before exiting."""
+    inputs = iter(['divide', '6', '0', 'exit'])  # Correct command and simulate division by zero
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    app = App()
+
+    with pytest.raises(SystemExit):
+        app.start()
+
+    captured = capfd.readouterr()
+    # Ensure the expected error message for division by zero is in the output
+    assert "Cannot divide by zero." in captured.out, "The divide command did not handle division by zero as expected."
+
+
 def test_app_start_load(capfd, monkeypatch):
     """Test how the REPL handles an fetch command before exiting."""
     # Simulate user entering an unknown command followed by 'exit'
