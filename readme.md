@@ -31,9 +31,11 @@ The Advanced Python Calculator is a comprehensive tool designed for performing a
 
 Upon launching `main.py`, the application presents a CLI from which users can access various arithmetic operations and manage the calculation history.**menu** command is used to project the list of registered commands.
 
-# 1.)Type any of the below commands in the REPL command interface
-# 2.)Enter the numbers when asked 
-# 3.)Interface computes and displays the result.
+1.)Type any of the below commands in the REPL command interface
+
+2.)Enter the numbers when asked 
+
+3.)Interface computes and displays the result.
 
 ### Arithmetic Operations
 
