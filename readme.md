@@ -6,34 +6,34 @@ The Advanced Python Calculator is a comprehensive tool designed for performing a
 
 ### Installation
 
-1. **Clone the Project Repository**
-   #Begin by cloning the repository to your local machine using the command:
+### 1. **Clone the Project Repository**
+        #Begin by cloning the repository to your local machine using the command:
 
-   git clone <repository_url>
+        git clone <repository_url>
 
-2. **Install Dependencies**
-   #Install the necessary Python packages listed in `requirements.txt`:
+### 2. **Install Dependencies**
+        #Install the necessary Python packages listed in `requirements.txt`:
 
-   pip install -r requirements.txt
+        pip install -r requirements.txt
 
 
-3. **Environment Configuration**
-   #Create a `.env` file in the root directory of the project and define the path for your calculation history file:
+### 3. **Environment Configuration**
+        #Create a `.env` file in the root directory of the project and define the path for your calculation history file:
 
-   CALCULATION_HISTORY_PATH = './data/calculation_history.csv'
+        CALCULATION_HISTORY_PATH = './data/calculation_history.csv'
 
-4. **Run the Application**
-   #Start the calculator application:
+### 4. **Run the Application**
+        #Start the calculator application:
 
-   python3 main.py
+        python3 main.py
 
 ## Usage
 
 Upon launching `main.py`, the application presents a CLI from which users can access various arithmetic operations and manage the calculation history.**menu** command is used to project the list of registered commands.
 
-1.)Type any of the below commands in the REPL command interface
-2.)Enter the numbers when asked 
-3.)Interface computes and displays the result.
+# 1.)Type any of the below commands in the REPL command interface
+# 2.)Enter the numbers when asked 
+# 3.)Interface computes and displays the result.
 
 ### Arithmetic Operations
 
@@ -74,7 +74,7 @@ ID  | action | value1 | value2 | result
 ## Logging and Error Handling
 
 ### Initial Setup
-- **Logging**: The application employs Python's built-in logging library to monitor actions and identify discrepancies.Upon launch, our logging framework is primed, setting the stage for detailed observance throughout the application lifecycle. This is achieved by configuring log levels, formats, and, if necessary, output destinations, ensuring a tailored logging experience[link](https://github.com/srivatsan1303/Midterm_Calculator/blob/main/logging.conf)
+- **Logging**: The application employs Python's built-in logging library to monitor actions and identify discrepancies.Upon launch, our logging framework is primed, setting the stage for detailed observance throughout the application lifecycle. This is achieved by configuring log levels, formats, and, if necessary, output destinations, ensuring a tailored logging experience.[link](https://github.com/srivatsan1303/Midterm_Calculator/blob/main/logging.conf)
 
 ### Operational Logging
 - **Error Handling**: As users interact with the application, every action, anomaly, or error is logged, offering real-time insights into application health and user engagement patterns. This proactive logging strategy extends from user operations to system-level events, such as file directory creation or access issues.It is used in the start function in this below code.[link](https://github.com/srivatsan1303/Midterm_Calculator/blob/main/app/__init__.py)
@@ -82,7 +82,7 @@ ID  | action | value1 | value2 | result
 ## EAFP (Easier to Ask for Forgiveness than Permission):
 
 ### Exception Management
-Adhering to the principle of EAFP, our system is designed to optimistically execute operations while being fully prepared to handle exceptions gracefully. This approach not only enhances code readability but also ensures robust error handling across the application.The ZeroDivisionError is an exception that has been handled in this below code[link](https://github.com/srivatsan1303/Midterm_Calculator/blob/main/app/plugins/divide/__init__.py)
+Adhering to the principle of EAFP, our system is designed to optimistically execute operations while being fully prepared to handle exceptions gracefully. This approach not only enhances code readability but also ensures robust error handling across the application.The ZeroDivisionError is an exception that has been handled in this below code.[link](https://github.com/srivatsan1303/Midterm_Calculator/blob/main/app/plugins/divide/__init__.py)
 
 ## Testing Framework
 
@@ -90,9 +90,9 @@ This application includes a suite of tests to ensure reliability and accuracy. U
 
 ### Running Tests
 
-Execute the test suite using pytest:
+### 1. **execute the test using pytest**
 
-pytest 
+        pytest 
 
 Test cases include:
 - Environment variable retrieval.
